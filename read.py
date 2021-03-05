@@ -1,6 +1,11 @@
 import cv2 as cv
 
-img = cv.imread('assets/images/cat.jpg')
+cat_image = 'assets/images/cat.jpg'
+large_cat_image = 'assets/images/cat_large.jpg'
 
-cv.imshow('Cat', img)
+cat_img = cv.imread(cat_image)
+large_cat_img = cv.imread(large_cat_image)
+
+cv.imshow('Cat', cat_img)
+cv.imshow('Large Cat', large_cat_img)
 cv.waitKey(0)
