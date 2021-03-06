@@ -1,6 +1,6 @@
 import cv2 as cv
 
-def convert_to_gray(image, show=False):
+def gray_image(image, show=False):
     output_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     if show:
         cv.imshow('Gray Image', output_image)
@@ -17,23 +17,38 @@ def blur_image(image, mask, show=False):
         if show:
             cv.imshow('Blurred Image', output_image)
             cv.waitKey(0)
-        return output_image
+        else:
+            return output_image
     except ValueError:
         exit('Mask size must be uneven!')
 
-def cascade(image, th1, th2, show):
-    output_image = cv.Canny(img, th1, th2)
+# use as default th1=125, th2=175
+def cascade_image(image, th1, th2, show):
+    output_image = cv.Canny(image, th1, th2)
     if show:
         cv.imshow('Canny Edges', output_image)
         cv.waitKey(0)
     else:
         return output_image
 
+def dilate_image(image, kernel_size, iterations=1, show=False):
+    output_image = cv.dilate(image, (kernel_size, kernel_size), iterations=iterations)
+    if show:
+        cv.imshow('Dilated Image', output_image)
+        cv.waitKey(0)
+    else:
+        return output_image
+
 
 if __name__=='__main__':
-    image_file = 'assets/images/cat.jpg'
+    
+    image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
-    convert_to_gray(img, True)
+    
+    blur_img = blur_image(img, 7, show=False)
+    cascade = cascade_image(blur_img, 125, 175, show=False)
+    dilate_image(cascade, 7, show=True)
+
 
     
     
