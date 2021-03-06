@@ -1,4 +1,5 @@
 import cv2 as cv
+import numpy as np
 from basic import blur_image
 
 def convert_gray(image, show=False):
@@ -65,7 +66,7 @@ def find_contours(image, mode='list', approx='none', show=False):
 
 def threshold_contour(image, min_th, max_th, show=False):
     '''
-        looks at an image and tries to binaries that image
+        looks at an image and tries to binaries that image (black and white)
         if min_th = 125 and max_th = 255 then
         if a pixel intensity is below 125, it'll be set to 0 (black)
         if a pixel intensity is above 125, it'll be set to 255 (white)
@@ -78,12 +79,21 @@ def threshold_contour(image, min_th, max_th, show=False):
 
     return ret, thresh
 
+def draw_contours(blank, contour_list, contour_index=-1, color=(0,0,255), thickness=2):
+    cv.drawContours(blank, contour_list, contour_index, color, thickness=2)
+    cv.imshow('Contours Drawn', blank)
+    cv.waitKey(0)
+
 if __name__=='__main__':
     image_file = 'assets/images/cats.jpg'
     img = cv.imread(image_file)
+    blank = np.zeros(img.shape, dtype='uint8')
+
     gray_img = convert_gray(img)
     blur = blur_image(gray_img, 5)
     canny = canny_edge(blur, 125, 175)
     _, thresh = threshold_contour(gray_img, 125, 255, show=True)
     find_contours(canny, show=True)
-    find_contours(thresh, show=True)
+    contours, h = find_contours(thresh, show=True)
+
+    draw_contours(blank, contours)
