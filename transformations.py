@@ -36,9 +36,25 @@ def rotate(image, angle, rotPoint=None, show=False):
     
     return output
 
+def flip_image(image, flip_value, show=False):
+    '''
+    for flip value code:
+        0 flip vertically, over x axis
+        1 flip horizontally, over y axis
+        -1 flip both vertically and horizontally
+    '''
+    output = cv.flip(image, flip_value)
+    if show:
+        cv.imshow('Flipped image', output)
+        cv.waitKey(0)
+
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
     
     translated = translate(img, 100, 100, True)
-    rotated = rotate(img, 45, show=True)
+    rotated = rotate(img, 45)
+    rotated = rotate(rotated, 45, show=True)
+    flip = flip_image(img, 1, show=True)
