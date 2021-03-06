@@ -77,8 +77,8 @@ if __name__=='__main__':
     cascade = cascade_image(blur_img, 125, 175)
     dl = dilate_image(cascade, 7)
     ei = erode_image(dl, 3)
-    resize_image(ei, 500, 500, True)
-
+    rs = resize_image(ei, 500, 500)
+    crop_image(rs, 50, 200, 50, 200, True)
 
     
     
