@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 
 
-def translate(image, x, y):
+def translate(image, x, y, show=False):
     '''
     -x translate left
     -y translate up
@@ -12,14 +12,33 @@ def translate(image, x, y):
     transMatrix = np.float32([ [1,0,x], [0,1,y] ])
     dimensions = (image.shape[1], image.shape[0])
 
-    return cv.warpAffine(image, transMatrix, dimensions)
+    output = cv.warpAffine(image, transMatrix, dimensions)
+
+    if show:
+        cv.imshow('Translated image', output)
+        cv.waitKey(0)
+
+    return output
+
+def rotate(image, angle, rotPoint=None, show=False):
+    (height, width) = image.shape[:2]
+
+    if rotPoint is None:
+        rotPoint = (width//2, height//2)
+    
+    rotMatrix = cv.getRotationMatrix2D(rotPoint, angle, 1.0)
+    dimensions = (width, height)
+
+    output = cv.warpAffine(image, rotMatrix, dimensions)
+    if show:
+        cv.imshow('Rotate Image', output)
+        cv.waitKey(0)
+    
+    return output
 
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
     
-    translated = translate(img, 100, 100)
-    cv.imshow('Boston', translated)
-    cv.waitKey(0)
-
-
+    translated = translate(img, 100, 100, True)
+    rotated = rotate(img, 45, show=True)
