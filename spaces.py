@@ -16,8 +16,15 @@ def convert_hsv(image, show=False):
 
     return output
 
+def convert_lab(image, show=False):
+    output = cv.cvtColor(image, cv.COLOR_BGR2LAB)
+    if show:
+        cv.imshow('LAB Image', output)
+        cv.waitKey(0)
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
     convert_gray(img, show=True)
     convert_hsv(img, show=True)
+    convert_lab(img, show=True)
