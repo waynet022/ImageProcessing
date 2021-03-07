@@ -22,10 +22,18 @@ def convert_lab(image, show=False):
     if show:
         cv.imshow('LAB Image', output)
         cv.waitKey(0)
+    return output
 
 def show_with_mat(image):
     plt.imshow(image)
     plt.show()
+
+def convert_rgb(image, show=False):
+    output = cv.cvtColor(image, cv.COLOR_BGR2RGB)
+    if show:
+        cv.imshow('RGB Image', output)
+        cv.waitKey(0)
+    return output
 
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
@@ -33,4 +41,5 @@ if __name__=='__main__':
     convert_gray(img, show=True)
     convert_hsv(img, show=True)
     convert_lab(img, show=True)
-    show_with_mat(img)
+    rgb_image = convert_rgb(img, show=True)
+    show_with_mat(rgb_image)
