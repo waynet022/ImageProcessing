@@ -42,10 +42,16 @@ def hsv_convert_bgr(image, show=False):
         cv.waitKey(0)
     return output
 
+def lab_convert_bgr(image, show=False):
+    output = cv.cvtColor(image, cv.COLOR_LAB2BGR)
+    if show:
+        cv.imshow('LAB to BGR', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
-    hsv = convert_hsv(img, show=True)
-    hsv_convert_bgr(hsv, show=True)
-    
+    lab = convert_lab(img, show=True)
+    lab_convert_bgr(lab, show=True)
     
