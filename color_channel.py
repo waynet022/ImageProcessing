@@ -40,5 +40,8 @@ def bgr_single_channel(image, show=False):
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img=cv.imread(image_file)
-    b,g,r = separate_bgr(img)
-    bgr_single_channel(img, show=True)
+    b,g,r = bgr_single_channel(img, show=True)
+    b, _, _ = separate_bgr(b)
+    _, g, _ = separate_bgr(g)
+    _, _, r = separate_bgr(r)
+    merge_channels(b,g,r, show=True)
