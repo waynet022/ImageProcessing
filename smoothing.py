@@ -29,6 +29,18 @@ def median_blur(image, kernel, show=True):
         cv.waitKey(0)
     return output
 
+def bilateral_blur(image, diameter, color_sigma, space_sigma, show=False):
+    '''
+    aims to retain edges of the image
+    uses diameter of neighbor pixels
+    sigma color, larger value means more color in neighborhood to consider
+    '''
+    output = cv.bilateralFilter(image, diameter, color_sigma, space_sigma)
+    if show:
+        cv.imshow('Bilateral Blur', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/group 1.jpg'
     img = cv.imread(image_file)
@@ -36,3 +48,4 @@ if __name__=='__main__':
     average_blur(img, 3, show=True)
     gaussian_blur(img, 3, 0, show=True)
     median_blur(img, 3, show=True)
+    bilateral_blur(img, 5, 15, 15, show=True)
