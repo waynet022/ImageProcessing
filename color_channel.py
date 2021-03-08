@@ -15,7 +15,16 @@ def separate_bgr(image, show=False):
         cv.waitKey(0)
     return b,g,r
 
+def merge_channels(ch1, ch2, ch3, show=False):
+    merged = [ch1,ch2,ch3]
+    output = cv.merge(merged)
+    if show:
+        cv.imshow('Merged Image', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img=cv.imread(image_file)
-    separate_bgr(img, show=True)
+    b,g,r = separate_bgr(img)
+    merge_channels(b,g,r, show=True)
