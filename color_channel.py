@@ -1,4 +1,5 @@
 import cv2 as cv
+import numpy as np
 
 def separate_bgr(image, show=False):
     '''
@@ -23,8 +24,21 @@ def merge_channels(ch1, ch2, ch3, show=False):
         cv.waitKey(0)
     return output
 
+def bgr_single_channel(image, show=False):
+    blank = np.zeros(image.shape[:2], dtype='uint8')
+    b,g,r = separate_bgr(image)
+    output_b = merge_channels(b, blank, blank)
+    output_g = merge_channels(blank, g, blank)
+    output_r = merge_channels(blank, blank, r)
+    if show:
+        cv.imshow('Blue', output_b)
+        cv.imshow('Green', output_g)
+        cv.imshow('Red', output_r)
+        cv.waitKey(0)
+    return output_b, output_g, output_r
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img=cv.imread(image_file)
     b,g,r = separate_bgr(img)
-    merge_channels(b,g,r, show=True)
+    bgr_single_channel(img, show=True)
