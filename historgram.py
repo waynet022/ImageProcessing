@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from spaces import convert_gray
 
-def histogram(image, img_mask=None, show=False):
+def gray_histogram(image, img_mask=None, show=False):
     hist = cv.calcHist([image], [0], img_mask, [256], [0,256])
 
     if show:
@@ -17,6 +17,19 @@ def histogram(image, img_mask=None, show=False):
 
     return hist
 
+def color_histogram(image, img_mask=None, show=False):
+    plt.figure()
+    plt.title('Colored Histogram')
+    plt.xlabel('Bins')
+    plt.ylabel('Number of pixels')
+    colors = ('b', 'g', 'r')
+    for i, col in enumerate(colors):
+        hist = cv.calcHist([img], [i], img_mask, [256], [0,256])
+        plt.plot(hist, color=col)
+        plt.xlim(0,256)
+    if show:
+        plt.show()
+    
 def circle_mask(image, radius, color=255, thickness=-1, show=False):
     blank = np.zeros(image.shape[:2], dtype='uint8')
     output = cv.circle(blank, (image.shape[1]//2, image.shape[0]//2), radius, color, thickness)
@@ -33,9 +46,9 @@ def bitwise_mask_and(image, img_mask, show=False):
     return output
 
 if __name__=='__main__':
-    image_file = 'assets/images/cats 2.jpg'
+    image_file = 'assets/images/cats.jpg'
     img = cv.imread(image_file)
     gray = convert_gray(img)
-    circle = circle_mask(img, 100, show=True)
-    bitwise_mask_and(gray, circle, show=True)
-    histogram(gray, img_mask=circle, show=True)
+    circle = circle_mask(img, 100)
+    bitwise_mask_and(gray, circle)
+    color_histogram(img, circle, show=True)
