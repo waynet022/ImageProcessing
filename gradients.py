@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+from bitwise import bitwise_or
 
 def convert_gray(image, show=False):
     output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
@@ -30,10 +31,19 @@ def sobel_y(gray_image, show=False):
         cv.waitKey(0)
     return output
 
+def canny_edge(gray_image, show=False):
+    output = cv.Canny(gray_image, 150, 175)
+    if show:
+        cv.imshow('Canny Edge', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
     gray = convert_gray(img, show=True)
     laplacian_edge(gray, show=True)
-    sobel_x(gray, show=True)
-    sobel_y(gray, show=True)
+    sx = sobel_x(gray, show=True)
+    sy = sobel_y(gray, show=True)
+    bitwise_or(sx, sy, show=True)
+    canny_edge(gray, show=True)
