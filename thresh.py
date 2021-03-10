@@ -21,9 +21,17 @@ def invert_threshold_img(gray_image, th1, th2, show=False):
         cv.waitKey(0)
     return threshold, inv_thresh
 
+def adaptive_threshold_img(gray_image, show=False):
+    output = cv.adaptiveThreshold(gray_image, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 3)
+    if show:
+        cv.imshow('Adaptive Thresholding', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
     image_file = 'assets/images/cats.jpg'
     img = cv.imread(image_file)
     gray = convert_gray(img, show=True)
     threshold_img(gray, 90, 255, show=True)
     invert_threshold_img(gray, 150, 255, show=True)
+    adaptive_threshold_img(gray, show=True)
