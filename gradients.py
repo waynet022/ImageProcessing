@@ -16,8 +16,16 @@ def laplacian_edge(gray_image, show=False):
         cv.waitKey(0)
     return output
 
+def sobel_x(gray_image, show=False):
+    output = cv.Sobel(gray_image, cv.CV_64F, 1, 0)
+    if show:
+        cv.imshow('Sobel X', output)
+        cv.waitKey(0)
+    return output
+
 if __name__=='__main__':
-    image_file = 'assets/images/cats.jpg'
+    image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
     gray = convert_gray(img, show=True)
     laplacian_edge(gray, show=True)
+    sobel_x(gray, show=True)
