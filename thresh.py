@@ -14,8 +14,16 @@ def threshold_img(gray_image, th1, th2, show=False):
         cv.waitKey(0)
     return threshold, thresh
 
+def invert_threshold_img(gray_image, th1, th2, show=False):
+    threshold, inv_thresh = cv.threshold(gray_image, th1, th2, cv.THRESH_BINARY_INV)
+    if show:
+        cv.imshow('Inverted Threshold Image', inv_thresh)
+        cv.waitKey(0)
+    return threshold, inv_thresh
+
 if __name__=='__main__':
     image_file = 'assets/images/cats.jpg'
     img = cv.imread(image_file)
     gray = convert_gray(img, show=True)
     threshold_img(gray, 90, 255, show=True)
+    invert_threshold_img(gray, 150, 255, show=True)
