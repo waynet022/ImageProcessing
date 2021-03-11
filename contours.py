@@ -3,14 +3,6 @@ import numpy as np
 from basic import blur_image
 from spaces import color_space_convert
 
-def convert_gray(image, show=False):
-    output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    if show:
-        cv.imshow('Gray Image', output)
-        cv.waitKey(0)
-
-    return output
-
 def canny_edge(image, th1=125, th2=175, show=False):
     output = cv.Canny(image, th1, th2)
     if show:
