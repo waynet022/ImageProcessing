@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 from basic import blur_image
+from spaces import color_space_convert
 
 def convert_gray(image, show=False):
     output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
@@ -89,7 +90,7 @@ if __name__=='__main__':
     img = cv.imread(image_file)
     blank = np.zeros(img.shape, dtype='uint8')
 
-    gray_img = convert_gray(img)
+    gray_img = color_space_convert(img, 'gray')
     blur = blur_image(gray_img, 5)
     canny = canny_edge(blur, 125, 175)
     _, thresh = threshold_contour(gray_img, 125, 255, show=True)
