@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
-from spaces import convert_gray
+from spaces import color_space_convert
 
 def gray_histogram(image, img_mask=None, show=False):
     hist = cv.calcHist([image], [0], img_mask, [256], [0,256])
@@ -48,7 +48,7 @@ def bitwise_mask_and(image, img_mask, show=False):
 if __name__=='__main__':
     image_file = 'assets/images/cats.jpg'
     img = cv.imread(image_file)
-    gray = convert_gray(img)
+    gray = color_space_convert(img, 'gray')
     circle = circle_mask(img, 100)
     bitwise_mask_and(gray, circle)
     color_histogram(img, circle, show=True)
