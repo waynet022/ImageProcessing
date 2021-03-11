@@ -1,6 +1,22 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
 
+
+def color_space_convert(image, conversion, show=False):
+    
+    options={
+        'gray': cv.COLOR_BGR2GRAY,
+        'hsv': cv.COLOR_BGR2HSV,
+        'lab': cv.COLOR_BGR2LAB,
+        'rgb': cv.COLOR_BGR2RGB
+    }
+    color_space=options[conversion]
+    output = cv.cvtColor(image, color_space)
+    if show:
+        cv.imshow('Converted Image', output)
+        cv.waitKey(0)
+    return output
+
 def convert_gray(image, show=False):
     output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     if show:
