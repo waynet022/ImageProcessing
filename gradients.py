@@ -3,13 +3,6 @@ import numpy as np
 from bitwise import bitwise_or
 from spaces import color_space_convert
 
-def convert_gray(image, show=False):
-    output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    if show:
-        cv.imshow('Gray Image', output)
-        cv.waitKey(0)
-    return output
-
 def laplacian_edge(gray_image, show=False):
     lap = cv.Laplacian(gray_image, cv.CV_64F)
     output = np.uint8(np.absolute(lap))
