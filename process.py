@@ -23,16 +23,11 @@ if __name__=='__main__':
     if path.exists(image_path):
         image=cv.imread(image_path)
         
-        if args.scale:
-            image = rescale_frame(image, args.scale)
-            
-        if args.space:
-            color_space_convert(image, args.space, show=args.show)
-        
+        if args.scale: image = rescale_frame(image, args.scale)
+        if args.space: color_space_convert(image, args.space, show=args.show)
         if args.gradient:
             gray_image = color_space_convert(image, 'gray')
             compute_gradient(gray_image, args.gradient, show=args.show)
-
 
         output=args.output
     else:
