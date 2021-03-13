@@ -27,3 +27,11 @@ run `process.py` with the following options
 [Optional] resize the output image (original is 1.0)
 --scale factor_value
 ```
+### Sample Output
+Gradient
+
+`process.py --image assets/images/nature3.jfif --gradient canny`
+
+Original             |  Canny
+:-------------------------:|:-------------------------:
+<img src="assets/images/nature3.jfif" width="800">|<img src="assets/images/sample_output/nature3_gd_canny.png" width="800">
