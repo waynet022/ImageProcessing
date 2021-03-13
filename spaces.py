@@ -10,8 +10,11 @@ def color_space_convert(image, conversion, show=False):
         'lab': cv.COLOR_BGR2LAB,
         'rgb': cv.COLOR_BGR2RGB
     }
-    color_space=options[conversion]
-    output = cv.cvtColor(image, color_space)
+    if conversion=='original':
+        output=image
+    else:
+        color_space=options[conversion]
+        output = cv.cvtColor(image, color_space)
     if show:
         cv.imshow('Converted Image', output)
         cv.waitKey(0)
