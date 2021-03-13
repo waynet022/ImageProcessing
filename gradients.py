@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 from bitwise import bitwise_or
+from spaces import color_space_convert
 
 def convert_gray(image, show=False):
     output = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
@@ -41,9 +42,5 @@ def canny_edge(gray_image, show=False):
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
-    gray = convert_gray(img, show=True)
-    laplacian_edge(gray, show=True)
-    sx = sobel_x(gray, show=True)
-    sy = sobel_y(gray, show=True)
-    bitwise_or(sx, sy, show=True)
+    gray = color_space_convert(img, 'gray', show=False)
     canny_edge(gray, show=True)
