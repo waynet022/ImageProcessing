@@ -23,7 +23,9 @@ run `process.py` with the following options
 [Required] Image path (ex: assets/images/nature1.jfif)
 --image path-to-image 
 [Optional] Show image gradients (options: laplacian, sobelx, sobely, sobelxy, canny)
---gradient gradient_option 
+--gradient gradient_option
+[Optional] Convert image color space (options: gray, hsv, lab, rgb)
+--space color_space_option
 [Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
