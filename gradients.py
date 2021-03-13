@@ -35,5 +35,5 @@ def canny_edge(gray_image, show=False):
 if __name__=='__main__':
     image_file = 'assets/images/park.jpg'
     img = cv.imread(image_file)
-    gray = color_space_convert(img, 'gray', show=False)
+    gray = color_space_convert(img, 'gray')
     canny_edge(gray, show=True)
