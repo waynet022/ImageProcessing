@@ -1,27 +1,31 @@
 import cv2 as cv
 
-video_file = 'assets/videos/dog.mp4'
-
-SCALE = 0.55
 
 #for videos, images, and live videos
-def rescaleFrame(frame, scale=0.75):
+def rescale_frame(frame, scale=1):
     width = int(frame.shape[1]*scale)
     height = int(frame.shape[0]*scale)
     dimensions = (width, height)
 
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 
-capture = cv.VideoCapture(video_file)
 
-while True:
-    isTrue, frame = capture.read()
+def rescale_video(video_file, scale):
+    capture = cv.VideoCapture(video_file)
 
-    frame_resized = rescaleFrame(frame, SCALE)
-    cv.imshow('Rescaled Video', frame_resized)
+    while True:
+        isTrue, frame = capture.read()
 
-    if cv.waitKey(20) & 0xFF==ord('d'):
-        break
+        frame_resized = rescale_frame(frame, scale)
+        cv.imshow('Rescaled Video', frame_resized)
 
-capture.release()
-cv.destroyAllWindows()
+        if cv.waitKey(20) & 0xFF==ord('q'):
+            break
+
+    capture.release()
+    cv.destroyAllWindows()
+
+if __name__=='__main__':
+    video_file = 'assets/videos/dog.mp4'
+    scale = 0.55
+    rescale_video(video_file, scale)
