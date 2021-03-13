@@ -20,11 +20,11 @@ pip install numpy
 run `process.py` with the following options
 
 ```
-[Required] image path (ex: assets/images/nature1.jfif)
+[Required] Image path (ex: assets/images/nature1.jfif)
 --image path-to-image 
-[Optional] show image gradients (options: rgb, hsv, gray, lab)
+[Optional] Show image gradients (options: laplacian, sobelx, sobely, sobelxy, canny)
 --gradient gradient_option 
-[Optional] resize the output image (original is 1.0)
+[Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
 ### Sample Output
