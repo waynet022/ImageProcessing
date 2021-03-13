@@ -25,7 +25,8 @@ if __name__=='__main__':
             color_space_convert(image, args.space, show=args.show)
         
         if args.gradient:
-            compute_gradient(image, args.gradient, show=args.show)
+            gray_image = color_space_convert(image, 'gray')
+            compute_gradient(gray_image, args.gradient, show=args.show)
 
         output=args.output
     else:

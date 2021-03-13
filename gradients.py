@@ -4,7 +4,7 @@ from bitwise import bitwise_or
 from spaces import color_space_convert
 
 def compute_gradient(img, gradient, show=False):
-    
+        
     def laplacian_edge(gray_image, show=False):
         lap = cv.Laplacian(gray_image, cv.CV_64F)
         output = np.uint8(np.absolute(lap))
@@ -22,12 +22,20 @@ def compute_gradient(img, gradient, show=False):
         output = cv.Canny(gray_image, 150, 175)
         return output
     
+    def sobel_xy(gray_image):
+        sobelx = sobel_x(gray_image)
+        sobely = sobel_y(gray_image)
+        output = bitwise_or(sobelx, sobely)
+        return output
+
     options={
-        'lapacian': laplacian_edge(img),
+        'laplacian': laplacian_edge(img),
         'sobelx': sobel_x(img),
         'sobely': sobel_y(img),
+        'sobelxy': sobel_xy(img),
         'canny': canny_edge(img)
     }
+    
     output=options[gradient]
     if show:
         cv.imshow('Gradient Image', output)
