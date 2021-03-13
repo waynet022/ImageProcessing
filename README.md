@@ -2,7 +2,7 @@
 
 ### Requirements
 - python3
-#### Libraries
+### Libraries
 - opencv-python
 - numpy
 
