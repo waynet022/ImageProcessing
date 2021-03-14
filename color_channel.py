@@ -11,7 +11,10 @@ def display_color_channel(image, color, show=False):
 
     output = options[color]
     if show:
-        cv.imshow(output)
+        # cv.imshow(f'{color} channel',options['blue'])
+        cv.imshow('Blue channel',options['blue'])
+        cv.imshow('Red channel',options['red'])
+        cv.imshow('Green channel',options['green'])
         cv.waitKey(0)
     return output
 
