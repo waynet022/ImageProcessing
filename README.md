@@ -2,7 +2,7 @@
 
 ### Requirements
 - python3
-#### Libraries
+### Libraries
 - opencv-python
 - numpy
 
@@ -29,11 +29,19 @@ run `process.py` with the following options
 [Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
-### Sample Output
-Gradient
+### Sample Outputs
+#### Gradient
 
 `process.py --image assets/images/nature3.jfif --gradient canny`
 
 Original             |  Canny
 :-------------------------:|:-------------------------:
 <img src="assets/images/nature3.jfif" width="800">|<img src="assets/images/sample_output/nature3_gd_canny.png" width="800">
+
+#### Color Space
+
+`process.py --image assets/images/nature5.jfif --space hsv`
+
+Original             |  HSV
+:-------------------------:|:-------------------------:
+<img src="assets/images/nature5.jfif" width="800">|<img src="assets/images/sample_output/nature5_sp_hsv.png" width="800">
