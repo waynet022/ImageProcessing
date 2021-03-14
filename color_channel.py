@@ -1,6 +1,20 @@
 import cv2 as cv
 import numpy as np
 
+def display_color_channel(image, color, show=False):
+    b,g,r = separate_bgr(image)
+    options={
+        'blue': b,
+        'green': g,
+        'red': r
+    }
+
+    output = options[color]
+    if show:
+        cv.imshow(output)
+        cv.waitKey(0)
+    return output
+
 def separate_bgr(image, show=False):
     '''
     the b,g,r are depicted and displayed as grayscale images that
@@ -38,7 +52,7 @@ def bgr_single_channel(image, show=False):
     return output_b, output_g, output_r
 
 if __name__=='__main__':
-    image_file = 'assets/images/park.jpg'
+    image_file = 'assets/images/nature4.jfif'
     img=cv.imread(image_file)
     b,g,r = bgr_single_channel(img, show=True)
     b, _, _ = separate_bgr(b)
