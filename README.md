@@ -54,7 +54,7 @@ Lighter regions mean higher intensities of the pixel value and vice versa
 
 Original             |  Red pixel intensity
 :-------------------------:|:-------------------------:
-<img src="assets/images/nature2.jfif" width="800">|<img src="assets/images/sample_output/nature2_ch_red.png" width="800">
+<img src="assets/images/colors.jfif" width="800">|<img src="assets/images/sample_output/colors_ch_red.png" width="800">
 
 
 
