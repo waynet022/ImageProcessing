@@ -48,14 +48,21 @@ Original             |  HSV
 
 #### Color Mapping Intensity 
 
-`process.py --image assets/images/nature2.jfif --channel red`
+```
+# Lighter regions mean higher intensities of the pixel value and vice versa
 
-Lighter regions mean higher intensities of the pixel value and vice versa
+process.py --image assets/images/nature2.jfif --channel red
+process.py --image assets/images/nature2.jfif --channel blue
+process.py --image assets/images/nature2.jfif --channel green
+
+```
+
 
 Original             |  Red pixel intensity
 :-------------------------:|:-------------------------:
 <img src="assets/images/colors.jfif" width="800">|<img src="assets/images/sample_output/colors_ch_red.png" width="800">
-
+Green pixel intensity             |  Blue pixel intensity
+<img src="assets/images/sample_output/colors_ch_green.png" width="800">|<img src="assets/images/sample_output/colors_ch_blue.png" width="800">
 
 
 ### References
