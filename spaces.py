@@ -15,7 +15,7 @@ def color_space_convert(image, conversion, show=False):
         color_space=options[conversion]
         output = cv.cvtColor(image, color_space)
     if show:
-        cv.imshow('Converted Image', output)
+        cv.imshow(conversion+' Image', output)
         cv.waitKey(0)
     return output
 
@@ -38,8 +38,10 @@ def lab_convert_bgr(image, show=False):
     return output
 
 if __name__=='__main__':
-    image_file = 'assets/images/park.jpg'
+    image_file = 'assets/images/nature6.jfif'
     img = cv.imread(image_file)
-    lab = color_space_convert(img, 'lab', show=True)
-    lab_convert_bgr(lab, show=True)
+    # lab = color_space_convert(img, 'lab', show=True)
+    # lab_convert_bgr(lab, show=True)
+    gray = color_space_convert(img, 'gray', show=True)
+    print([len(img.shape), len(gray.shape)])
     
