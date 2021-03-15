@@ -28,7 +28,7 @@ if __name__=='__main__':
         if args.scale: image = rescale_frame(image, args.scale)
         if args.space: color_space_convert(image, args.space, show=args.show)
         if args.gradient:
-            gray_image = color_space_convert(image, 'gray')
+            gray_image = (image if len(image.shape) < 3 else color_space_convert(image, 'gray'))
             compute_gradient(gray_image, args.gradient, show=args.show)
         if args.channel: display_color_channel(image, args.channel, show=args.show)
 
