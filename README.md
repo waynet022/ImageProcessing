@@ -77,6 +77,15 @@ Image             |  Image Histogram
 :-------------------------:|:-------------------------:
 <img src="assets/images/nature2.jfif" width="800">|<img src="assets/images/sample_output/nature2_histo.png" width="800">
 
+#### Image Thresholding 
+```
+# Threshold the image with input threshold value
+process.py --image assets/images/cat.jfif --threshold binary 180 255
+```
+
+Orginal            |  Binary threshold with threshold values 180 and 255
+:-------------------------:|:-------------------------:
+<img src="assets/images/cat.jfif" width="800">|<img src="assets/images/sample_output/cat_th_180.png" width="800">
 
 ### References
 - [Jason Dsouza OpenCV tutorial](https://www.youtube.com/watch?v=oXlwWbU8l2o&t=10147s)
