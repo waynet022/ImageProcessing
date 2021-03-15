@@ -5,6 +5,7 @@
 ### Libraries
 - opencv-python
 - numpy
+- matplotlib
 
 ### Setup
 ```
