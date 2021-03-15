@@ -57,12 +57,21 @@ process.py --image assets/images/nature2.jfif --channel green
 
 ```
 
-
 Original             |  Red pixel intensity
 :-------------------------:|:-------------------------:
 <img src="assets/images/colors.jfif" width="800">|<img src="assets/images/sample_output/colors_ch_red.png" width="800">
 Green pixel intensity             |  Blue pixel intensity
 <img src="assets/images/sample_output/colors_ch_green.png" width="800">|<img src="assets/images/sample_output/colors_ch_blue.png" width="800">
+
+#### Color Mapping Histogram
+```
+# maps the intensity values of the color pixels for blue, green, red
+process.py --image assets/images/nature2.jfif --histogram color
+```
+
+Image             |  Image Histogram
+:-------------------------:|:-------------------------:
+<img src="assets/images/nature2.jfif" width="800">|<img src="assets/images/sample_output/nature2_histo.png" width="800">
 
 
 ### References
