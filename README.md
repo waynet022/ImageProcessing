@@ -63,9 +63,9 @@ Original             |  HSV
 ```
 # Lighter regions mean higher intensities of the pixel value and vice versa
 
-process.py --image assets/images/nature2.jfif --channel red
-process.py --image assets/images/nature2.jfif --channel blue
-process.py --image assets/images/nature2.jfif --channel green
+process.py --image assets/images/colors.jfif --channel red
+process.py --image assets/images/colors.jfif --channel blue
+process.py --image assets/images/colors.jfif --channel green
 
 ```
 
