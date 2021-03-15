@@ -30,6 +30,8 @@ run `process.py` with the following options
 --channel color
 [Optional] Display histogram of image color intensities (options: gray, color)
 --histogram color_option
+[Optional] Threshold image with 2 threshold values between 0 and 255 (options: binary, inverted, adaptive)
+--threshold threshold_operation threshold_value_1  threshold_value_2 
 [Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
