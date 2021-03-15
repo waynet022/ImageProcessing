@@ -83,7 +83,7 @@ Image             |  Image Histogram
 process.py --image assets/images/cat.jfif --threshold binary 180 255
 ```
 
-Image             |  Binary threshold with threshold value 180
+Orginal            |  Binary threshold with threshold values 180 and 255
 :-------------------------:|:-------------------------:
 <img src="assets/images/cat.jfif" width="800">|<img src="assets/images/sample_output/cat_th_180.png" width="800">
 
