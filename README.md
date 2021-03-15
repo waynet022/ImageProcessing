@@ -5,15 +5,15 @@
 ### Libraries
 - opencv-python
 - numpy
+- matplotlib
 
 ### Setup
 ```
 [Recommended] Create a python virtual environment
 python -m venv env
 
-[Required] Install libraries
-pip install opencv-python
-pip install numpy
+[Required] Install requirements 
+pip install -r requirements.txt
 ```
 
 ### Commands
