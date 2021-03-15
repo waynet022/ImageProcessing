@@ -26,6 +26,10 @@ run `process.py` with the following options
 --gradient gradient_option
 [Optional] Convert image color space (options: gray, hsv, lab, rgb)
 --space color_space_option
+[Optional] Display color intensity in grayscale (options: blue, green, red)
+--channel color
+[Optional] Display histogram of image color intensities (options: gray, color)
+--histogram color_option
 [Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
