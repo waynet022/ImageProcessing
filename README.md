@@ -46,6 +46,17 @@ Original             |  HSV
 :-------------------------:|:-------------------------:
 <img src="assets/images/nature5.jfif" width="800">|<img src="assets/images/sample_output/nature5_sp_hsv.png" width="800">
 
+#### Color Mapping Intensity 
+
+`process.py --image assets/images/nature2.jfif --channel red`
+
+Lighter regions mean higher intensities of the pixel value and vice versa
+
+Original             |  Red pixel intensity
+:-------------------------:|:-------------------------:
+<img src="assets/images/nature2.jfif" width="800">|<img src="assets/images/sample_output/nature2_ch_red.png" width="800">
+
+
 
 ### References
 - [Jason Dsouza OpenCV tutorial](https://www.youtube.com/watch?v=oXlwWbU8l2o&t=10147s)
