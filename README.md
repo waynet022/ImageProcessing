@@ -86,6 +86,8 @@ process.py --image assets/images/cat.jfif --threshold binary 180 255
 Orginal            |  Binary threshold with threshold values 180 and 255
 :-------------------------:|:-------------------------:
 <img src="assets/images/cat.jfif" width="800">|<img src="assets/images/sample_output/cat_th_180.png" width="800">
+ Inverted threshold with threshold values 120 and 255 |Adaptive threshold
+<img src="assets/images/sample_output/cat_th_inv_120.png" width="800">|<img src="assets/images/sample_output/cat_th_ad.png" width="800">
 
 ### References
 - [Jason Dsouza OpenCV tutorial](https://www.youtube.com/watch?v=oXlwWbU8l2o&t=10147s)
