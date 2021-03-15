@@ -10,17 +10,11 @@ def compute_gradient(img, gradient, show=False):
         output = np.uint8(np.absolute(lap))
         return output
 
-    def sobel_x(gray_image):
-        output = cv.Sobel(gray_image, cv.CV_64F, 1, 0)
-        return output
+    def sobel_x(gray_image): return cv.Sobel(gray_image, cv.CV_64F, 1, 0)
 
-    def sobel_y(gray_image):
-        output = cv.Sobel(gray_image, cv.CV_64F, 0, 1)        
-        return output
+    def sobel_y(gray_image): return cv.Sobel(gray_image, cv.CV_64F, 0, 1)        
 
-    def canny_edge(gray_image):
-        output = cv.Canny(gray_image, 150, 175)
-        return output
+    def canny_edge(gray_image): return cv.Canny(gray_image, 150, 175)
     
     def sobel_xy(gray_image):
         sobelx = sobel_x(gray_image)
