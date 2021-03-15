@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 from spaces import color_space_convert
-from bitwise import bitwise_and
+from bitwise import bitwise_operation
 
 def show_histogram(image, channel, img_mask=None):
 

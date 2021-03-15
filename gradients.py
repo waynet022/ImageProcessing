@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-from bitwise import bitwise_or
+from bitwise import bitwise_operation
 from spaces import color_space_convert
 
 def compute_gradient(img, gradient, show=False):
@@ -19,7 +19,7 @@ def compute_gradient(img, gradient, show=False):
     def sobel_xy(gray_image):
         sobelx = sobel_x(gray_image)
         sobely = sobel_y(gray_image)
-        output = bitwise_or(sobelx, sobely)
+        output = bitwise_operation(sobelx, sobely, 'or')
         return output
 
     options={
