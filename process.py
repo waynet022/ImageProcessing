@@ -38,8 +38,9 @@ if __name__=='__main__':
         if args.histogram: show_histogram(image, args.histogram)
         if args.threshold: 
             gray_image = (image if len(image.shape) < 3 else color_space_convert(image, 'gray'))
-            threshold_img(gray_image, args.threshold[0], int(args.threshold[1]), int(args.threshold[2]), show=args.show )
-
+            try: threshold_img(gray_image, args.threshold[0], [int(args.threshold[1]), int(args.threshold[2])], show=args.show )
+            except: threshold_img(gray_image, args.threshold[0], show=args.show )
+            
         output=args.output
     else:
         print('Invalid File Path')

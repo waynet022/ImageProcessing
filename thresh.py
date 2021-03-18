@@ -1,10 +1,10 @@
 import cv2 as cv
 from spaces import color_space_convert
 
-def threshold_img(gray_image, th_op, thresholds, show=False):
-    if thresholds:
-        th1=thresholds[0]
-        th2=thresholds[1]
+def threshold_img(gray_image, th_op, thresholds=[90, 255], show=False):
+    
+    th1=thresholds[0]
+    th2=thresholds[1]
 
     def threshold():
         threshold, thresh = cv.threshold(gray_image, th1, th2, cv.THRESH_BINARY)
