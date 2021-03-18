@@ -1,7 +1,11 @@
 import cv2 as cv
 from spaces import color_space_convert
 
-def threshold_img(gray_image, th_op, th1=90, th2=255, show=False):
+def threshold_img(gray_image, th_op, thresholds, show=False):
+    if thresholds:
+        th1=thresholds[0]
+        th2=thresholds[1]
+
     def threshold():
         threshold, thresh = cv.threshold(gray_image, th1, th2, cv.THRESH_BINARY)
         return threshold, thresh
@@ -29,6 +33,6 @@ if __name__=='__main__':
     img = cv.imread(image_file)
     gray = color_space_convert(img, 'gray', show=True)
     
-    threshold_img(gray, 'adaptive', show=True)
-    threshold_img(gray, 'binary', 90, 255, show=True)
-    threshold_img(gray, 'inverted', 150, 255, show=True)
+    threshold_img(gray, 'adaptive',[], show=True)
+    threshold_img(gray, 'binary', [90, 255], show=True)
+    threshold_img(gray, 'inverted', [150, 255], show=True)
