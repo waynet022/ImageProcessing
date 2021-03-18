@@ -22,16 +22,22 @@ run `process.py` with the following options
 ```
 [Required] Image path (ex: assets/images/nature1.jfif)
 --image path-to-image 
+
 [Optional] Show image gradients (options: laplacian, sobelx, sobely, sobelxy, canny)
 --gradient gradient_option
+
 [Optional] Convert image color space (options: gray, hsv, lab, rgb)
 --space color_space_option
+
 [Optional] Display color intensity in grayscale (options: blue, green, red)
 --channel color
+
 [Optional] Display histogram of image color intensities (options: gray, color)
 --histogram color_option
+
 [Optional] Threshold image with 2 threshold values between 0 and 255 (options: binary, inverted, adaptive)
 --threshold threshold_operation threshold_value_1  threshold_value_2 
+
 [Optional] Resize the output image (original is 1.0)
 --scale factor_value
 ```
@@ -57,9 +63,9 @@ Original             |  HSV
 ```
 # Lighter regions mean higher intensities of the pixel value and vice versa
 
-process.py --image assets/images/nature2.jfif --channel red
-process.py --image assets/images/nature2.jfif --channel blue
-process.py --image assets/images/nature2.jfif --channel green
+process.py --image assets/images/colors.jfif --channel red
+process.py --image assets/images/colors.jfif --channel blue
+process.py --image assets/images/colors.jfif --channel green
 
 ```
 
