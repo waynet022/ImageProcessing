@@ -44,4 +44,5 @@ if __name__=='__main__':
     # lab_convert_bgr(lab, show=True)
     gray = color_space_convert(img, 'gray', show=True)
     print([len(img.shape), len(gray.shape)])
+    cv.imwrite('output/image.png', gray)
     
